@@ -16,13 +16,16 @@
         <h1>Weather Dashboard</h1>
     </nav>
 
-    <div>
+    <div class="search_container">
         <h2>Search for City:</h2>
         <input id='userInput' type="text">
         <button id="search_btn">Search</button>
+        <div class="history_container">
+            <h2>Search History:</h2>
+        </div>
     </div>
 
-    <div class="current">
+    <div class="current_container ">
         <h2 id="location_name"></h2>
         <ul>
             <li id="temp"></li>
@@ -31,11 +34,7 @@
         </ul>
     </div>
 
-    <div id="search_history">
-        <h2>Search History:</h2>
-    </div>
-
-    <div>
+    <div class="future_container">
         <h2>5-day Forecast:</h2>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"

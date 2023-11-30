@@ -1,6 +1,30 @@
-* {
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
 }
 
+nav {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search_container,
+.current_container,
+.future_container {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 10px;
+}

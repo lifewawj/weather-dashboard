@@ -1,12 +1,14 @@
 // My API Key
 var APIKey = 'c856779139801e3d2dcf1e726f865979'
 
-
-
 // TARGETS the searchBtn element
 var searchBtn = $('#search_btn');
 
 
+// TODO Create Local Storage for user's input and display on webpage
+// TODO Create a variable to target user's input
+// TODO TARGET .setItem to localstorage
+// TODO .getItem from localStorage to display on webpage
 
 
 // When searchBtn (element) is clicked. With the User's desired input, we are FETCHING data for the specific city.
@@ -17,19 +19,11 @@ searchBtn.on('click', function (event) {
     // Combines the API's URL and the user's input to create a fetch call, with also my API Key
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
-    localStorage.setItem('city',city)
+    localStorage.setItem(city, city)
 
     clearPreviousSearch();
     fetchWeatherAPI(queryURL);
 });
-
-
-
-// TODO Create Local Storage for user's input and display on webpage
-// TODO Create a variable to target user's input
-// TODO TARGET .setItem to localstorage
-// TODO .getItem from localStorage to display on webpage
-
 
 
 
