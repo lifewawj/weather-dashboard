@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
@@ -14,11 +18,29 @@
 
     <div>
         <h2>Search for City:</h2>
-        <input id='userInput'type="text">
+        <input id='userInput' type="text">
         <button id="search_btn">Search</button>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <div class="current">
+        <h2 id="location_name"></h2>
+        <ul>
+            <li id="temp"></li>
+            <li id="wind"></li>
+            <li id="humidity"></li>
+        </ul>
+    </div>
+
+    <div id="search_history">
+        <h2>Search History:</h2>
+    </div>
+
+    <div>
+        <h2>5-day Forecast:</h2>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
