@@ -125,8 +125,10 @@ function fetchWeatherAPI(queryURL) {
             var day1_tempData = data.list[6].main.temp;
             var day1_windData = data.list[6].wind.speed;
             var day1_humidityData = data.list[6].main.humidity;
+            // Convert K to F
+            var day1_TempDataFahrenheit = kelvinToFahrenheit(day1_tempData)
             // Inserting Text inside of the data elements
-            day1_tempEl.innerText = '🌡️ Temp: ' + day1_tempData + "°F";
+            day1_tempEl.innerText = '🌡️ Temp: ' + day1_TempDataFahrenheit.toFixed(2) + "°F";
             day1_windEl.innerText = '💨 Wind: ' + day1_windData + 'MPH'
             day1_humidityEl.innerText = '🥵 Humidity: ' + day1_humidityData + '%'
             // Apend Elements
@@ -148,8 +150,10 @@ function fetchWeatherAPI(queryURL) {
             var day2_tempData = data.list[14].main.temp;
             var day2_windData = data.list[14].wind.speed;
             var day2_humidityData = data.list[14].main.humidity;
+            // Convert K to F
+            var day2_TempDataFahrenheit = kelvinToFahrenheit(day2_tempData)
             // Inserting Text inside of the data elements
-            day2_tempEl.textContent = '🌡️ Temp: ' + day2_tempData + "°F";
+            day2_tempEl.textContent = '🌡️ Temp: ' + day2_TempDataFahrenheit.toFixed(2) + "°F";
             day2_windEl.innerText = '💨 Wind: ' + day2_windData + 'MPH'
             day2_humidityEl.innerText = '🥵 Humidity: ' + day2_humidityData + '%'
             // Apend Elements
@@ -171,8 +175,10 @@ function fetchWeatherAPI(queryURL) {
             var day3_tempData = data.list[22].main.temp;
             var day3_windData = data.list[22].wind.speed;
             var day3_humidityData = data.list[22].main.humidity;
+            // Convert K to F
+            var day3_TempDataFahrenheit = kelvinToFahrenheit(day3_tempData)
             // Inserting Text inside of the data elements
-            day3_tempEl.textContent = '🌡️ Temp: ' + day3_tempData + "°F";
+            day3_tempEl.textContent = '🌡️ Temp: ' + day3_TempDataFahrenheit.toFixed(2) + "°F";
             day3_windEl.innerText = '💨 Wind: ' + day3_windData + 'MPH'
             day3_humidityEl.innerText = '🥵 Humidity: ' + day3_humidityData + '%'
             // Apend Elements
@@ -194,8 +200,10 @@ function fetchWeatherAPI(queryURL) {
             var day4_tempData = data.list[30].main.temp;
             var day4_windData = data.list[30].wind.speed;
             var day4_humidityData = data.list[30].main.humidity;
+            // Convert K to F
+            var day4_TempDataFahrenheit = kelvinToFahrenheit(day4_tempData)
             // Inserting Text inside of the data elements
-            day4_tempEl.textContent = '🌡️ Temp: ' + day4_tempData + "°F";
+            day4_tempEl.textContent = '🌡️ Temp: ' + day4_TempDataFahrenheit.toFixed(2) + "°F";
             day4_windEl.innerText = '💨 Wind: ' + day4_windData + 'MPH'
             day4_humidityEl.innerText = '🥵 Humidity: ' + day4_humidityData + '%'
             // Apend Elements
@@ -217,8 +225,10 @@ function fetchWeatherAPI(queryURL) {
             var day5_tempData = data.list[38].main.temp;
             var day5_windData = data.list[38].wind.speed;
             var day5_humidityData = data.list[38].main.humidity;
+            // Convert K to F
+            var day5_TempDataFahrenheit = kelvinToFahrenheit(day5_tempData)
             // Inserting Text inside of the data elements
-            day5_tempEl.textContent = '🌡️ Temp: ' + day5_tempData + "°F";
+            day5_tempEl.textContent = '🌡️ Temp: ' + day5_TempDataFahrenheit.toFixed(2) + "°F";
             day5_windEl.innerText = '💨 Wind: ' + day5_windData + 'MPH'
             day5_humidityEl.innerText = '🥵 Humidity: ' + day5_humidityData + '%'
             // Apend Elements
