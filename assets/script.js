@@ -111,6 +111,9 @@ function fetchWeatherAPI(queryURL) {
             // What list[x] number from 5 days out current
             // 2, 3, 4, 5, 6
             // 6, 14, 22, 30, 38 
+            var futureContainer = document.querySelector('.future_container')
+
+            futureContainer.style.display = 'block'
 
             // DAY 1
             // SETS THE DATE AND DISPLAYS ON WEBPAGE
@@ -241,8 +244,10 @@ function fetchWeatherAPI(queryURL) {
 
             // CURRENT DAY
             // TARGETS the h2 element with the id of 'location_name'
+            var currentContainer = document.querySelector('.current_container')
             var locationNameEl = document.getElementById('location_name');
 
+            currentContainer.style.display = 'block'
             // uses the fetch data and targets the city's name and date
             var locationNameData = data.city.name;
             var dateData = data.list[0].dt_txt.split(' ')[0];
