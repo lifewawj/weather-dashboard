@@ -45,11 +45,16 @@ function getLocalStorage() {
 
 // When searchBtn (element) is clicked. With the User's desired input, we are FETCHING data for the specific city.
 searchBtn.on('click', function (event) {
-
     // TARGETS the element with the user's desired input
     var userInputcity = $('#userInput').val()
     // Combines the API's URL and the user's input to create a fetch call, with also my API Key
     var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + userInputcity + "&appid=" + APIKey;
+
+    // Check if the user input is empty
+    if (userInputcity === '') {
+        alert('Please enter a valid city name.');
+        return;
+    }
 
     // SAVEs user's input to Local Storage
     localStorage.setItem(userInputcity, userInputcity)
