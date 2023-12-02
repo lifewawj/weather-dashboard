@@ -19,8 +19,6 @@ As someone who enjoys outdoor activities and travel, I created this application 
 - Enter the name of a city in the input field and click the search button.
 ![IMG-1](<imgs/Screenshot 2023-12-02 at 3.25.15 am.png>)
 
-![IMG-2](<imgs/Screenshot 2023-12-02 at 3.25.40 am.png>)
-
 - Click on a city in the search history to see its weather information.
 ![IMG-3](<imgs/Screenshot 2023-12-02 at 3.40.18 am.png>)
 
