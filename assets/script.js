@@ -113,7 +113,8 @@ function fetchWeatherAPI(queryURL) {
             // 6, 14, 22, 30, 38 
             var futureContainer = document.querySelector('.future_container')
 
-            futureContainer.style.display = 'block'
+            futureContainer.style.display = 'flex'
+            futureContainer.style.flexDirection = 'row'
 
             // DAY 1
             // SETS THE DATE AND DISPLAYS ON WEBPAGE
@@ -246,8 +247,9 @@ function fetchWeatherAPI(queryURL) {
             // TARGETS the h2 element with the id of 'location_name'
             var currentContainer = document.querySelector('.current_container')
             var locationNameEl = document.getElementById('location_name');
-
+            // CSS STYLING CHANGE
             currentContainer.style.display = 'block'
+
             // uses the fetch data and targets the city's name and date
             var locationNameData = data.city.name;
             var dateData = data.list[0].dt_txt.split(' ')[0];
@@ -285,12 +287,11 @@ function kelvinToFahrenheit(kelvin) {
 // Clears the User's Previous Search
 function clearPreviousSearch() {
     var locationNameEl = document.getElementById('location_name');
-
-    locationNameEl.innerHTML = '';
-
     var tempEl = document.getElementById('temp');
     var windEl = document.getElementById('wind');
     var humidityEl = document.getElementById('humidity');
+
+    locationNameEl.innerHTML = '';
 
     tempEl.innerHTML = '';
     windEl.innerHTML = '';
