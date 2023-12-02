@@ -48,7 +48,7 @@ searchBtn.on('click', function (event) {
     // TARGETS the element with the user's desired input
     var userInputcity = $('#userInput').val()
     // Combines the API's URL and the user's input to create a fetch call, with also my API Key
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + userInputcity + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userInputcity + "&appid=" + APIKey;
 
     // Check if the user input is empty
     if (userInputcity === '') {
@@ -72,7 +72,7 @@ searchBtn.on('click', function (event) {
 // when clicked, it uses the fetchWeatherAPI() function
 // and the local storage's data
 function searchHistoryBtn(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
     // Clear the previous search
     clearPreviousSearch();
