@@ -50,7 +50,7 @@ searchBtn.on('click', function (event) {
     // Combines the API's URL and the user's input to create a fetch call, with also my API Key
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userInputcity + "&appid=" + APIKey;
 
-    // Check if the user input is empty
+    // Check if the user input is empty, if so alert the user, and dont run the rest of the code/functions
     if (userInputcity === '') {
         alert('Please enter a valid city name.');
         return;
@@ -73,7 +73,7 @@ searchBtn.on('click', function (event) {
 
 // Listens for a click on the recent search history buttons
 // when clicked, it uses the fetchWeatherAPI() function
-// and the local storage's data
+// and the local storage's data. While also clearing the previous search
 function searchHistoryBtn(city) {
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
@@ -83,18 +83,18 @@ function searchHistoryBtn(city) {
     // Fetch the data for the specific city again
     fetchWeatherAPI(queryURL);
 }
+    var searchHistoryEl =  document.getElementById('search_history'); 
+    // Listens for a click on the search buttons
+    searchHistoryEl.addEventListener('click', function (event) {
+        // Checks if the clicked element is a button within the search history
+        if (event.target.tagName.toLowerCase() === 'button') {
+            // Get the text content of the clicked button (which is the city name)
+            var cityName = event.target.textContent;
 
-// Attach a click event listener to the search history element
-document.getElementById('search_history').addEventListener('click', function (event) {
-    // Check if the clicked element is a button within the search history
-    if (event.target.tagName.toLowerCase() === 'button') {
-        // Get the text content of the clicked button (which is the city name)
-        var cityName = event.target.textContent;
-
-        // Call the searchHistoryBtn function with the cityName
-        searchHistoryBtn(cityName);
-    }
-});
+            // Call the searchHistoryBtn function with the cityName
+            searchHistoryBtn(cityName);
+        }
+    });
 
 
 
@@ -300,7 +300,7 @@ function fetchWeatherAPI(queryURL) {
             tempEl.append('🌡️ Temp: ' + currentTempDataFahrenheit.toFixed(2) + "°F");
             windEl.append('💨 Wind: ' + windData + 'MPH');
             humidityEl.append('🥵 Humidity: ' + humidityData + '%');
-            
+
         })
 };
 
