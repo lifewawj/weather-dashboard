@@ -64,6 +64,9 @@ searchBtn.on('click', function (event) {
 
     // fetches the data
     fetchWeatherAPI(queryURL);
+
+    // Updates search history
+    updateSearchHistory();
 });
 
 
@@ -309,7 +312,6 @@ function kelvinToFahrenheit(kelvin) {
 }
 
 
-
 // Clears the User's Previous Search
 function clearPreviousSearch() {
     var locationNameEl = document.getElementById('location_name');
@@ -330,6 +332,7 @@ function clearPreviousSearch() {
     clearDayForecast('day5');
 }
 
+
 // Clears the forecast information for a specific day
 function clearDayForecast(day) {
     var dayLocationName = document.getElementById(day + '_location_name');
@@ -337,4 +340,23 @@ function clearDayForecast(day) {
 
     dayLocationName.innerHTML = '';
     dayDataEl.innerHTML = '';
+}
+
+// Updates the search history
+function updateSearchHistory() {
+    var searchHistoryEl = document.getElementById('search_history');
+
+    searchHistoryEl.innerHTML = '';
+
+    for (let i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+
+        var value = localStorage.getItem(key);
+
+        var listEl = document.createElement('button');
+
+        listEl.textContent = value;
+
+        searchHistoryEl.append(listEl);
+    }
 }
