@@ -63,9 +63,31 @@ searchBtn.on('click', function (event) {
 
 
 
-// TODO listens for a click on the recent search history buttons
+// Listens for a click on the recent search history buttons
 // when clicked, it uses the fetchWeatherAPI() function
-// using the the local storage data to research
+// and the local storage's data
+function searchHistoryBtn(city) {
+    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+
+    // Clear the previous search
+    clearPreviousSearch();
+
+    // Fetch the data for the specific city again
+    fetchWeatherAPI(queryURL);
+}
+
+// Attach a click event listener to the search history element
+document.getElementById('search_history').addEventListener('click', function (event) {
+    // Check if the clicked element is a button within the search history
+    if (event.target.tagName.toLowerCase() === 'button') {
+        // Get the text content of the clicked button (which is the city name)
+        var cityName = event.target.textContent;
+
+        // Call the searchHistoryBtn function with the cityName
+        searchHistoryBtn(cityName);
+    }
+});
+
 
 
 
@@ -113,8 +135,7 @@ function fetchWeatherAPI(queryURL) {
             // 6, 14, 22, 30, 38 
             var futureContainer = document.querySelector('.future_container')
 
-            futureContainer.style.display = 'flex'
-            futureContainer.style.flexDirection = 'row'
+            futureContainer.style.display = 'block'
 
             // DAY 1
             // SETS THE DATE AND DISPLAYS ON WEBPAGE
@@ -134,9 +155,9 @@ function fetchWeatherAPI(queryURL) {
             // Convert K to F
             var day1_TempDataFahrenheit = kelvinToFahrenheit(day1_tempData)
             // Inserting Text inside of the data elements
-            day1_tempEl.innerText = '🌡️ Temp: ' + day1_TempDataFahrenheit.toFixed(2) + "°F";
-            day1_windEl.innerText = '💨 Wind: ' + day1_windData + 'MPH'
-            day1_humidityEl.innerText = '🥵 Humidity: ' + day1_humidityData + '%'
+            day1_tempEl.textContent = '🌡️ Temp: ' + day1_TempDataFahrenheit.toFixed(2) + "°F";
+            day1_windEl.textContent = '💨 Wind: ' + day1_windData + 'MPH'
+            day1_humidityEl.textContent = '🥵 Humidity: ' + day1_humidityData + '%'
             // Apend Elements
             day1_dataEl.append(day1_tempEl);
             day1_dataEl.append(day1_windEl);
@@ -160,8 +181,8 @@ function fetchWeatherAPI(queryURL) {
             var day2_TempDataFahrenheit = kelvinToFahrenheit(day2_tempData)
             // Inserting Text inside of the data elements
             day2_tempEl.textContent = '🌡️ Temp: ' + day2_TempDataFahrenheit.toFixed(2) + "°F";
-            day2_windEl.innerText = '💨 Wind: ' + day2_windData + 'MPH'
-            day2_humidityEl.innerText = '🥵 Humidity: ' + day2_humidityData + '%'
+            day2_windEl.textContent = '💨 Wind: ' + day2_windData + 'MPH'
+            day2_humidityEl.textContent = '🥵 Humidity: ' + day2_humidityData + '%'
             // Apend Elements
             day2_dataEl.append(day2_tempEl);
             day2_dataEl.append(day2_windEl);
@@ -185,8 +206,8 @@ function fetchWeatherAPI(queryURL) {
             var day3_TempDataFahrenheit = kelvinToFahrenheit(day3_tempData)
             // Inserting Text inside of the data elements
             day3_tempEl.textContent = '🌡️ Temp: ' + day3_TempDataFahrenheit.toFixed(2) + "°F";
-            day3_windEl.innerText = '💨 Wind: ' + day3_windData + 'MPH'
-            day3_humidityEl.innerText = '🥵 Humidity: ' + day3_humidityData + '%'
+            day3_windEl.textContent = '💨 Wind: ' + day3_windData + 'MPH'
+            day3_humidityEl.textContent = '🥵 Humidity: ' + day3_humidityData + '%'
             // Apend Elements
             day3_dataEl.append(day3_tempEl);
             day3_dataEl.append(day3_windEl);
@@ -210,8 +231,8 @@ function fetchWeatherAPI(queryURL) {
             var day4_TempDataFahrenheit = kelvinToFahrenheit(day4_tempData)
             // Inserting Text inside of the data elements
             day4_tempEl.textContent = '🌡️ Temp: ' + day4_TempDataFahrenheit.toFixed(2) + "°F";
-            day4_windEl.innerText = '💨 Wind: ' + day4_windData + 'MPH'
-            day4_humidityEl.innerText = '🥵 Humidity: ' + day4_humidityData + '%'
+            day4_windEl.textContent = '💨 Wind: ' + day4_windData + 'MPH'
+            day4_humidityEl.textContent = '🥵 Humidity: ' + day4_humidityData + '%'
             // Apend Elements
             day4_dataEl.append(day4_tempEl);
             day4_dataEl.append(day4_windEl);
@@ -235,8 +256,8 @@ function fetchWeatherAPI(queryURL) {
             var day5_TempDataFahrenheit = kelvinToFahrenheit(day5_tempData)
             // Inserting Text inside of the data elements
             day5_tempEl.textContent = '🌡️ Temp: ' + day5_TempDataFahrenheit.toFixed(2) + "°F";
-            day5_windEl.innerText = '💨 Wind: ' + day5_windData + 'MPH'
-            day5_humidityEl.innerText = '🥵 Humidity: ' + day5_humidityData + '%'
+            day5_windEl.textContent = '💨 Wind: ' + day5_windData + 'MPH'
+            day5_humidityEl.textContent = '🥵 Humidity: ' + day5_humidityData + '%'
             // Apend Elements
             day5_dataEl.append(day5_tempEl);
             day5_dataEl.append(day5_windEl);
@@ -267,10 +288,11 @@ function fetchWeatherAPI(queryURL) {
 
             var currentTempDataFahrenheit = kelvinToFahrenheit(tempData);
 
-            // Display the converted temperature in Fahrenheit
+            // Appends elements
             tempEl.append('🌡️ Temp: ' + currentTempDataFahrenheit.toFixed(2) + "°F");
             windEl.append('💨 Wind: ' + windData + 'MPH');
             humidityEl.append('🥵 Humidity: ' + humidityData + '%');
+            
         })
 };
 
@@ -283,7 +305,6 @@ function kelvinToFahrenheit(kelvin) {
 
 
 
-// TODO Clear the 1-5 days out Info when the search button is clicked
 // Clears the User's Previous Search
 function clearPreviousSearch() {
     var locationNameEl = document.getElementById('location_name');
@@ -292,8 +313,23 @@ function clearPreviousSearch() {
     var humidityEl = document.getElementById('humidity');
 
     locationNameEl.innerHTML = '';
-
     tempEl.innerHTML = '';
     windEl.innerHTML = '';
     humidityEl.innerHTML = '';
+
+    // Clear 5-day forecast elements
+    clearDayForecast('day1');
+    clearDayForecast('day2');
+    clearDayForecast('day3');
+    clearDayForecast('day4');
+    clearDayForecast('day5');
+}
+
+// Clears the forecast information for a specific day
+function clearDayForecast(day) {
+    var dayLocationName = document.getElementById(day + '_location_name');
+    var dayDataEl = document.getElementById(day + '_data');
+
+    dayLocationName.innerHTML = '';
+    dayDataEl.innerHTML = '';
 }

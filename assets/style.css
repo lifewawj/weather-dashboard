@@ -85,4 +85,5 @@ ul {
 #day4_location_name,
 #day5_location_name {
     margin: 10px;
+    font-size: auto;
 }
