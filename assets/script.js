@@ -21,7 +21,7 @@ function getLocalStorage() {
             var value = localStorage.getItem(key);
 
             // creates a li element
-            var listEl = document.createElement('li');
+            var listEl = document.createElement('button');
 
             // store the value from the user's local storage in the listEl
             listEl.textContent = value;
@@ -63,7 +63,9 @@ searchBtn.on('click', function (event) {
 
 
 
-
+// TODO listens for a click on the recent search history buttons
+// when clicked, it uses the fetchWeatherAPI() function
+// using the the local storage data to research
 
 
 
@@ -237,7 +239,7 @@ function fetchWeatherAPI(queryURL) {
             day5_dataEl.append(day5_humidityEl);
 
 
-            // CURRENT DAY WEATHER
+            // CURRENT DAY
             // TARGETS the h2 element with the id of 'location_name'
             var locationNameEl = document.getElementById('location_name');
 
@@ -256,7 +258,6 @@ function fetchWeatherAPI(queryURL) {
             var windData = data.list[0].wind.speed
             var humidityData = data.list[0].main.humidity
 
-            // TODO Figure out the temp to convert to Farenheight
             var currentTempDataFahrenheit = kelvinToFahrenheit(tempData);
 
             // Display the converted temperature in Fahrenheit
@@ -275,7 +276,7 @@ function kelvinToFahrenheit(kelvin) {
 
 
 
-
+// TODO Clear the 1-5 days out Info when the search button is clicked
 // Clears the User's Previous Search
 function clearPreviousSearch() {
     var locationNameEl = document.getElementById('location_name');
@@ -290,7 +291,3 @@ function clearPreviousSearch() {
     windEl.innerHTML = '';
     humidityEl.innerHTML = '';
 }
-
-
-// TODO create a function for each temp to convert it from K to F
-// possible creating an array with those numbers and giving it the equation

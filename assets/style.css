@@ -28,3 +28,17 @@ ul {
     padding: 10px;
     margin: 10px;
 }
+
+#search_history {
+    display: flex;
+    flex-direction: column;
+}
+
+#day1_container,
+#day2_container,
+#day3_container,
+#day4_container,
+#day5_container {
+    border: 1px solid #000;
+    margin: 20px;
+}
